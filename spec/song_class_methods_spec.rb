@@ -48,10 +48,11 @@ describe "Song Class Methods" do
     it 'returns the existing Song object (doesn\'t create a new one) when provided the title of an existing Song' do
       song_1 = Song.find_or_create_by_name("Sometimes")
       song_2 = Song.find_or_create_by_name("Sometimes")
+      binding.pry
 
       expect(song_1).to eq(song_2)
     end
-    
+
     it 'creates a new Song object with the provided title if one doesn\'t already exist' do
       blank_space = Song.find_by_name("Blank Space")
       expect(blank_space).to be(nil)
